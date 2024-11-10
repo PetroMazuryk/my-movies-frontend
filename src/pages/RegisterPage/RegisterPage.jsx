@@ -1,9 +1,8 @@
-import RegisterForm from '../../modules/RegisterForm/RegisterForm';
+import RegisterForm from '../../components/RegisterForm/RegisterForm';
 
 const RegisterPage = () => {
   return (
-    <div className="container">
-      <h1 className="page-title">Register page</h1>
+    <div>
       <RegisterForm />
     </div>
   );

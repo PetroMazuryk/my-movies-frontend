@@ -1,9 +1,9 @@
-import styles from './TextField.module.scss';
+import styles from './TextField.module.css';
 
 const TextField = ({ label, ...props }) => {
   return (
     <div className={styles.formGroup}>
-      <label>{label}</label>
+      <label className={styles.label}>{label}</label>
       <input className={styles.field} {...props} />
     </div>
   );
