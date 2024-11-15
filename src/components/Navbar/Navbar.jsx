@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-
+import NavbarMenu from './NavbarMenu/NavbarMenu';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
@@ -10,7 +10,7 @@ const Navbar = () => {
       <div className="container">
         <div className={styles.navbarRow}>
           <Link to="/">Logo</Link>
-          <div>NavbarMenu</div>
+          <NavbarMenu />
 
           {!isLogin && <div>NavbarAuth</div>}
           {isLogin && <div>NavbarUser</div>}
