@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import NavbarMenu from './NavbarMenu/NavbarMenu';
 import NavbarAuth from './NavbarAuth/NavbarAuth';
+import NavbarUser from './NavbarUser/NavbarUser';
 
 import { isUserLogin } from '../../redux/auth/auth-selectors';
 
@@ -16,9 +17,8 @@ const Navbar = () => {
         <div className={styles.navbarRow}>
           <Link to="/">Logo</Link>
           <NavbarMenu />
-
           {!isLogin && <NavbarAuth />}
-          {isLogin && <div>NavbarUser</div>}
+          {isLogin && <NavbarUser />}
         </div>
       </div>
     </div>
