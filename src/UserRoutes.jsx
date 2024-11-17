@@ -7,7 +7,7 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 const RegisterPage = lazy(() =>
   import('./pages/RegisterPage/RegisterPage.jsx')
 );
-
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage/NotFoundPage.jsx')
 );
@@ -18,7 +18,7 @@ const UserRoutes = () => {
       <Routes>
         <Route element={<PublicRoute />}>
           <Route path="/register" element={<RegisterPage />} />
-          <Route path="/login" element={<div>LoginPage</div>} />
+          <Route path="/login" element={<LoginPage />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
