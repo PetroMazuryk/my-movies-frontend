@@ -4,9 +4,13 @@ import { Routes, Route } from 'react-router-dom';
 import PublicRoute from './components/PublicRoute/PublicRoute.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
-const RegisterPage = lazy(() => import('./pages/RegisterPage/RegisterPage'));
+const RegisterPage = lazy(() =>
+  import('./pages/RegisterPage/RegisterPage.jsx')
+);
 
-const NotFoundPage = lazy(() => import('./pages/NotFoundPage/NotFoundPage'));
+const NotFoundPage = lazy(() =>
+  import('./pages/NotFoundPage/NotFoundPage.jsx')
+);
 
 const UserRoutes = () => {
   return (

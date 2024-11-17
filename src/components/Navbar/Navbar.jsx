@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import NavbarMenu from './NavbarMenu/NavbarMenu';
+import NavbarAuth from './NavbarAuth/NavbarAuth';
+
+import { isUserLogin } from '../../redux/auth/auth-selectors';
+
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
-  const isLogin = true;
+  const isLogin = useSelector(isUserLogin);
 
   return (
     <div className={styles.navbar}>
@@ -12,7 +17,7 @@ const Navbar = () => {
           <Link to="/">Logo</Link>
           <NavbarMenu />
 
-          {!isLogin && <div>NavbarAuth</div>}
+          {!isLogin && <NavbarAuth />}
           {isLogin && <div>NavbarUser</div>}
         </div>
       </div>
