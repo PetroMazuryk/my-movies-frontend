@@ -1,13 +1,13 @@
+import { useRef } from 'react';
 import InputMask from 'react-input-mask-next';
-
 import useForm from '../../../hooks/useForm';
-
 import initialState from './initialState';
-
 import styles from './MyMoviesForm.module.css';
 
 const MyMoviesForm = ({ onSubmit }) => {
   const { state, handleChange, reset } = useForm({ initialState, onSubmit });
+
+  const releaseDateInput = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -67,12 +67,13 @@ const MyMoviesForm = ({ onSubmit }) => {
       <div className={styles.formGroup}>
         <label>Movie release date</label>
         <InputMask
+          ref={releaseDateInput}
           value={releaseDate}
           name="releaseDate"
           mask="9999"
           onChange={handleChange}
           className={styles.textField}
-          placeholder="Movie date"
+          placeholder="Book date"
           required
         />
       </div>

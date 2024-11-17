@@ -1,17 +1,22 @@
+import { useRef } from 'react';
 import styles from './MyMoviesList.module.css';
 
-const { VITE_API_URL } = import.meta.env.VITE_API_URL;
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
-const MyBooksList = ({ items, onDeleteMovie }) => {
-  const elements = items.map(({ _id, title, director, poster }) => (
+const MyMoviesList = ({ items, onDeleteMovie }) => {
+  const imageRef = useRef(null);
+
+  const elements = items.map(({ _id, title, director, genre, poster }) => (
     <li className={styles.listItem} key={_id}>
       {poster && (
         <img
+          ref={imageRef}
           className={styles.listItemPoster}
           src={`${VITE_API_URL}/${poster}`}
+          alt={`Poster for ${title}`}
         />
       )}
-      Title: {title}. Director: {director}.{' '}
+      Title: {title}. Director: {director}. Genre: {genre}
       <button onClick={() => onDeleteMovie(_id)}>Delete</button>
     </li>
   ));
@@ -19,4 +24,4 @@ const MyBooksList = ({ items, onDeleteMovie }) => {
   return <ol className={styles.list}>{elements}</ol>;
 };
 
-export default MyBooksList;
+export default MyMoviesList;
