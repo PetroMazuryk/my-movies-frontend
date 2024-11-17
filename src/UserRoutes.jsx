@@ -4,10 +4,13 @@ import { Routes, Route } from 'react-router-dom';
 import PublicRoute from './components/PublicRoute/PublicRoute.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 
+const MyMoviesPage = lazy(() =>
+  import('./pages/MyMoviesPage/MyMoviesPage.jsx')
+);
 const RegisterPage = lazy(() =>
   import('./pages/RegisterPage/RegisterPage.jsx')
 );
-const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage'));
+const LoginPage = lazy(() => import('./pages/LoginPage/LoginPage.jsx'));
 const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage/NotFoundPage.jsx')
 );
@@ -22,7 +25,7 @@ const UserRoutes = () => {
         </Route>
 
         <Route element={<PrivateRoute />}>
-          <Route path="/my-movies" element={<div>MyMoviesPage</div>} />
+          <Route path="/my-movies" element={<MyMoviesPage />} />
           <Route
             path="/my-favorite-movies"
             element={<div>yFavoriteMoviesPage</div>}
