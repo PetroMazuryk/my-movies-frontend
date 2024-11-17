@@ -6,8 +6,9 @@ const useForm = ({ initialState, onSubmit }) => {
   const handleChange = useCallback(
     ({ target }) => {
       setState((prevState) => {
-        const { name, value, checked, type } = target;
-        const newValue = type === 'checkbox' ? checked : value;
+        const { name, value, checked, type, files } = target;
+        const newValue =
+          type === 'checkbox' ? checked : type === 'file' ? files[0] : value;
 
         return { ...prevState, [name]: newValue };
       });
