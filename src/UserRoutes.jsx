@@ -7,6 +7,9 @@ import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 const MyMoviesPage = lazy(() =>
   import('./pages/MyMoviesPage/MyMoviesPage.jsx')
 );
+const MyFavoriteMoviesPage = lazy(() =>
+  import('./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage')
+);
 const RegisterPage = lazy(() =>
   import('./pages/RegisterPage/RegisterPage.jsx')
 );
@@ -28,7 +31,7 @@ const UserRoutes = () => {
           <Route path="/my-movies" element={<MyMoviesPage />} />
           <Route
             path="/my-favorite-movies"
-            element={<div>yFavoriteMoviesPage</div>}
+            element={<MyFavoriteMoviesPage />}
           />
         </Route>
 
