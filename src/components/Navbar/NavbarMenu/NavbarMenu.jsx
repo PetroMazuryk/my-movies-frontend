@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-
+import clsx from 'clsx';
 import { isUserLogin } from '../../../redux/auth/auth-selectors';
 
 import items from './navbarMenuItems.json';
@@ -11,10 +11,14 @@ const NavbarMenu = () => {
   const isLogin = useSelector(isUserLogin);
   const menuItems = !isLogin ? items.filter((item) => !item.private) : items;
 
+  const buildLinkClass = ({ isActive }) => {
+    return clsx(styles.link, isActive && styles.active);
+  };
+
   const elements = menuItems.map(({ id, link, text }) => {
     return (
       <li key={id}>
-        <NavLink to={link} className={styles.link}>
+        <NavLink to={link} className={buildLinkClass}>
           {text}
         </NavLink>
       </li>

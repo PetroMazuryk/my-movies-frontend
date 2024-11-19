@@ -3,6 +3,9 @@ import { useDispatch } from 'react-redux';
 
 import { current } from '../../redux/auth/auth-operations';
 
+import hero from '../../images/bg.jpg';
+import styles from './AuthLayout.module.css';
+
 const AuthLayout = ({ children }) => {
   const dispatch = useDispatch();
 
@@ -10,7 +13,18 @@ const AuthLayout = ({ children }) => {
     dispatch(current());
   }, [dispatch]);
 
-  return children;
+  return (
+    <div
+      style={{
+        // backgroundImage: `url(${hero})`,
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+      }}
+      className={styles.wrapperLayout}
+    >
+      {children}
+    </div>
+  );
 };
 
 export default AuthLayout;
