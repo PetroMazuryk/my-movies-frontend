@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 
 import { current } from '../../redux/auth/auth-operations';
 
-import hero from '../../images/bg.jpg';
+// import hero from '../../images/bg.jpg';
 import styles from './AuthLayout.module.css';
 
 const AuthLayout = ({ children }) => {

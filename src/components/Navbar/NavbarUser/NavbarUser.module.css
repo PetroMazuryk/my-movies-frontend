@@ -1,10 +1,17 @@
+.userTitle {
+  font-size: 20px;
+  font-weight: 700;
+}
+
 .link {
-  display: inline-block;
-  margin: 0 5px;
-  text-decoration: none;
-  color: #000;
+  width: 100px;
+  padding: 7px 20px;
+  border: 1px solid red;
+  border-radius: 10px;
+  color: red;
 }
 
 .link.active {
-  font-weight: bold;
+  background-color: rgb(226, 95, 43);
+  color: white;
 }
