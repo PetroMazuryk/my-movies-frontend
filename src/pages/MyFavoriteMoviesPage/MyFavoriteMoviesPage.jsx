@@ -4,9 +4,9 @@ import { getFavoriteMovies } from '../../redux/movies/movies-selectors';
 
 const MyFavoriteMoviesPage = () => {
   const favoriteMovies = useSelector(getFavoriteMovies);
-
-  const elements = favoriteMovies.map(({ id, title, director }) => (
-    <li key={id}>
+  console.log(favoriteMovies);
+  const elements = favoriteMovies.map(({ _id, title, director }) => (
+    <li key={_id}>
       Title: {title}. Director: {director}.
     </li>
   ));

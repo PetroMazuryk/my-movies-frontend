@@ -8,7 +8,7 @@ const MyMoviesPage = lazy(() =>
   import('./pages/MyMoviesPage/MyMoviesPage.jsx')
 );
 const MyFavoriteMoviesPage = lazy(() =>
-  import('./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage')
+  import('./pages/MyFavoriteMoviesPage/MyFavoriteMoviesPage.jsx')
 );
 const RegisterPage = lazy(() =>
   import('./pages/RegisterPage/RegisterPage.jsx')
