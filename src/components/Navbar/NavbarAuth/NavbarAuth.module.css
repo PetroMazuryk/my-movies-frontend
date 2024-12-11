@@ -1,10 +1,15 @@
 .link {
+  width: 140px;
   display: inline-block;
-  margin: 0 5px;
+  padding: 10px 20px;
+  border: 1px solid red;
+  border-radius: 10px;
+  color: red;
   text-decoration: none;
-  color: #000;
+  margin-left: 12px;
 }
 
 .link.active {
-  font-weight: bold;
+  background-color: rgb(226, 95, 43);
+  color: white;
 }
