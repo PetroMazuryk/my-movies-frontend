@@ -1,13 +1,10 @@
-import { useRef } from 'react';
-import InputMask from 'react-input-mask-next';
+import MaskedInput from 'react-text-mask';
 import useForm from '../../../hooks/useForm';
 import initialState from './initialState';
 import styles from './MyMoviesForm.module.css';
 
 const MyMoviesForm = ({ onSubmit }) => {
   const { state, handleChange, reset } = useForm({ initialState, onSubmit });
-
-  const releaseDateInput = useRef(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,6 +15,8 @@ const MyMoviesForm = ({ onSubmit }) => {
   };
 
   const { title, director, favorite, releaseDate } = state;
+
+  const yearMask = [/\d/, /\d/, /\d/, /\d/];
 
   return (
     <form
@@ -66,14 +65,13 @@ const MyMoviesForm = ({ onSubmit }) => {
       </div>
       <div className={styles.formGroup}>
         <label>Movie release date</label>
-        <InputMask
-          ref={releaseDateInput}
+        <MaskedInput
+          mask={yearMask}
           value={releaseDate}
           name="releaseDate"
-          mask="9999"
           onChange={handleChange}
           className={styles.textField}
-          placeholder="Book date"
+          placeholder="YYYY"
           required
         />
       </div>
