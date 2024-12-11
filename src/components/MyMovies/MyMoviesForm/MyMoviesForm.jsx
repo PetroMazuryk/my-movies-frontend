@@ -79,7 +79,9 @@ const MyMoviesForm = ({ onSubmit }) => {
         <label>Poster</label>
         <input name="poster" type="file" />
       </div>
-      <button type="submit">Add movie</button>
+      <button className={styles.btn} type="submit">
+        Add movie
+      </button>
     </form>
   );
 };
