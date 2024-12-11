@@ -9,6 +9,7 @@
   border: 1px solid red;
   border-radius: 10px;
   color: red;
+  cursor: pointer;
 }
 
 .link.active {

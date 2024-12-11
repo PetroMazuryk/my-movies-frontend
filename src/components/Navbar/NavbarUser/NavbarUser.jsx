@@ -5,6 +5,7 @@ import { getUser } from '../../../redux/auth/auth-selectors';
 import { logout } from '../../../redux/auth/auth-operations';
 
 import styles from './NavbarUser.module.css';
+import EditMovie from '../../EditMovie/EditMovie';
 
 const NavbarUser = () => {
   const { name } = useSelector(getUser);
@@ -17,6 +18,7 @@ const NavbarUser = () => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+      <EditMovie />
       <p className={styles.userTitle}> {name}</p>
       <button className={styles.link} onClick={onLogout}>
         Logout
