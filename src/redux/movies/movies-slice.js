@@ -1,6 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchMovies, addMovie, deleteMovie } from './movies-operations';
+import {
+  fetchMovies,
+  addMovie,
+  deleteMovie,
+  updateMovie,
+} from './movies-operations';
 
 const initialState = {
   items: [],
@@ -46,6 +51,20 @@ const moviesSlice = createSlice({
         state.items = state.items.filter(({ _id }) => _id !== payload);
       })
       .addCase(deleteMovie.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(updateMovie.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateMovie.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        state.items = state.items.map((item) =>
+          item._id === payload._id ? payload : item
+        );
+      })
+      .addCase(updateMovie.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       });

@@ -46,3 +46,18 @@ export const deleteMovie = createAsyncThunk(
     }
   }
 );
+
+export const updateMovie = createAsyncThunk(
+  'movies/updateMovie',
+  async ({ id, data }, { rejectWithValue }) => {
+    try {
+      const { data: updatedMovie } = await api.updateMovieById(id, data);
+      return updatedMovie;
+    } catch ({ response }) {
+      return rejectWithValue({
+        status: response?.status,
+        message: response?.data?.message || 'Failed to update movie',
+      });
+    }
+  }
+);

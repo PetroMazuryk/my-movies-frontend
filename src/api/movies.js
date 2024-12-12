@@ -13,3 +13,11 @@ export const addMovie = (data) => {
     },
   });
 };
+
+export const updateMovieById = (id, data) => {
+  return instance.put(`/api/movies/${id}`, data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+    },
+  });
+};
