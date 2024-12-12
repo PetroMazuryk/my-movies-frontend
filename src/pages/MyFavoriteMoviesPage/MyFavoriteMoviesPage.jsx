@@ -40,13 +40,14 @@ const MyFavoriteMoviesPage = () => {
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>
+        <button className={styles.btnEdit}>Edit</button>
       </li>
     )
   );
 
   return (
     <MyBooksBlock title="My favorite movies page">
-      <ol className={styles.list}>{elements}</ol>;
+      <ol className={styles.list}>{elements}</ol>
     </MyBooksBlock>
   );
 };

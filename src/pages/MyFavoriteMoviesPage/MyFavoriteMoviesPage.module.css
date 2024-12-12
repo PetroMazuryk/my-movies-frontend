@@ -10,6 +10,7 @@
 .listItem {
   position: relative;
   overflow: hidden;
+  border: var(--border);
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition:
@@ -81,4 +82,28 @@
 .list > :last-child:nth-child(3n + 1) {
   grid-column: span 3;
   justify-self: center;
+}
+
+.btnEdit {
+  position: absolute;
+  width: 61px;
+  top: 75%;
+  left: 56%;
+  transform: translate(-50%, -50%);
+  padding: 2px 8px;
+  background-color: var(--bg-btn-color);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.btnEdit:hover {
+  background-color: var(--bg-btn-hover-color);
+}
+
+.listItem:hover .btnEdit {
+  opacity: 1;
 }

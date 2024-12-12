@@ -1,5 +1,5 @@
 .form {
-  border: 1px solid #ddd;
+  border: var(--border);
   border-radius: 12px;
   padding: 20px;
   background-color: #fff;

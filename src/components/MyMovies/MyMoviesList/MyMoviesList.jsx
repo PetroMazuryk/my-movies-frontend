@@ -28,6 +28,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>
+        <button className={styles.btnEdit}>Edit</button>
       </li>
     )
   );
