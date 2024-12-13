@@ -4,6 +4,7 @@ const initialState = {
   favorite: false,
   genre: 'fantastic',
   releaseDate: '',
+  poster: null,
 };
 
 export default initialState;
