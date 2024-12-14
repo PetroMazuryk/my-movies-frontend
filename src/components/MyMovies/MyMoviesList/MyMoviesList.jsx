@@ -1,5 +1,6 @@
 import { useRef } from 'react';
 import styles from './MyMoviesList.module.css';
+import EditMovie from '../EditMovie/EditMovie';
 
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
@@ -7,7 +8,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
   const imageRef = useRef(null);
 
   const elements = items.map(
-    ({ _id, title, director, genre, poster, releaseDate }) => (
+    ({ _id, title, director, genre, poster, releaseDate, favorite }) => (
       <li className={styles.listItem} key={_id}>
         {poster && (
           <div className={styles.posterWrapper}>
@@ -29,6 +30,17 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
           Delete
         </button>
         <button className={styles.btnEdit}>Edit</button>
+        <EditMovie
+          movie={{
+            _id,
+            title,
+            director,
+            genre,
+            poster,
+            releaseDate,
+            favorite,
+          }}
+        />
       </li>
     )
   );
