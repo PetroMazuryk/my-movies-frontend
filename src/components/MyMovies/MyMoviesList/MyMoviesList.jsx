@@ -29,7 +29,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>
-        <button className={styles.btnEdit}>Edit</button>
+
         <EditMovie
           movie={{
             _id,
@@ -40,6 +40,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
             releaseDate,
             favorite,
           }}
+          className={styles.btnEdit}
         />
       </li>
     )

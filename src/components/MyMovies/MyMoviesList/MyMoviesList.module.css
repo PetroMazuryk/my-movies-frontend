@@ -19,11 +19,6 @@
   width: 300px;
 }
 
-/* .list > :last-child:nth-child(3n + 1) {
-  grid-column: span 3;
-  justify-self: center;
-} */
-
 .posterWrapper {
   margin: 16px;
   overflow: hidden;

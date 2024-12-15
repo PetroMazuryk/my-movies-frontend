@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import Modal from '../../Modal/Modal';
 import EditMoviesForm from '../EditMovieForm/EditMovieForm';
 import { updateMovie } from '../../../redux/movies/movies-operations'; // Операція для оновлення фільму
-// import styles from './EditMovie.module.css';
-const EditMovie = ({ movie }) => {
+
+const EditMovie = ({ movie, className }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const dispatch = useDispatch();
 
@@ -18,7 +18,9 @@ const EditMovie = ({ movie }) => {
 
   return (
     <div>
-      <button onClick={openModal}>Edit</button>
+      <button className={className} onClick={openModal}>
+        Edit
+      </button>
 
       {isModalOpen && (
         <Modal
