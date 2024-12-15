@@ -57,6 +57,21 @@
   font-weight: 500;
 }
 
+.like {
+  width: 26px;
+  height: 26px;
+  fill: transparent;
+  stroke: var(--bg-btn-color);
+  position: absolute;
+  top: 10%;
+  left: 10%;
+}
+
+.likeActive {
+  fill: var(--bg-btn-color);
+  stroke: var(--bg-btn-color);
+}
+
 .button {
   position: absolute;
   top: 10%;

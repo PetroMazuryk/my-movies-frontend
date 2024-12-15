@@ -105,3 +105,9 @@ input {
   -webkit-appearance: none;
   border-radius: 0;
 }
+
+button {
+  outline: none;
+  padding: 0;
+  border: none;
+}
