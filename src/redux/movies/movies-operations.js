@@ -61,3 +61,15 @@ export const updateMovie = createAsyncThunk(
     }
   }
 );
+
+export const updateMovieFavorite = createAsyncThunk(
+  'movies/updateFavorite',
+  async ({ id, favorite }, { rejectWithValue }) => {
+    try {
+      const response = await api.updateMovieFavoriteById(id, { favorite });
+      return response.data;
+    } catch (error) {
+      return rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);

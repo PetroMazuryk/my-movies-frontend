@@ -5,6 +5,7 @@ import {
   addMovie,
   deleteMovie,
   updateMovie,
+  updateMovieFavorite,
 } from './movies-operations';
 
 const initialState = {
@@ -65,6 +66,23 @@ const moviesSlice = createSlice({
         );
       })
       .addCase(updateMovie.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(updateMovieFavorite.pending, (state) => {
+        state.loading = true;
+        state.error = null;
+      })
+      .addCase(updateMovieFavorite.fulfilled, (state, { payload }) => {
+        state.loading = false;
+        const index = state.items.findIndex(
+          (movie) => movie._id === payload._id
+        );
+        if (index !== -1) {
+          state.items[index] = payload;
+        }
+      })
+      .addCase(updateMovieFavorite.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       });

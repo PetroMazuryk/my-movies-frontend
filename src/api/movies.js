@@ -21,3 +21,7 @@ export const updateMovieById = (id, data) => {
     },
   });
 };
+
+export const updateMovieFavoriteById = (id, data) => {
+  return instance.patch(`/api/movies/${id}/favorite`, data);
+};
