@@ -52,7 +52,6 @@ const MyFavoriteMoviesPage = () => {
           }}
           className={styles.btnEdit}
         />
-        {/* <button className={styles.btnEdit}>Edit</button> */}
       </li>
     )
   );

@@ -18,7 +18,11 @@
   position: relative;
   max-width: 50%;
 }
-
+/* .modalTitle {
+  font-weight: 600;
+  padding-bottom: 6px;
+  text-shadow: var(--text-shadow-title);
+} */
 .close {
   font-weight: bold;
   font-size: 18px;

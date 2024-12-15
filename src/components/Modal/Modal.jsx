@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
+import TitleText from '../TitleText/TitleText';
 
 import styles from './Modal.module.css';
 
@@ -25,7 +26,7 @@ const Modal = ({ close, title, content, actions }) => {
         <span onClick={close} className={styles.close}>
           X
         </span>
-        {title && <h2>{title}</h2>}
+        {title && <TitleText>Edit Movie</TitleText>}
         {content && <div>{content}</div>}
         {actions && <div className={styles.actions}>{actions}</div>}
       </div>

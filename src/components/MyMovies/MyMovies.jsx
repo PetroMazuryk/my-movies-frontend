@@ -31,7 +31,7 @@ const MyMovies = () => {
   };
 
   return (
-    <div className={styles.wrapper}>
+    <div>
       <div className={styles.blocks}>
         <MyMoviesBlock title="Add movie">
           <MyMoviesForm onSubmit={onAddMovie} />
