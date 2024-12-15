@@ -1,1 +1,0 @@
-import{j as s,i as o}from"./index-244c16b2.js";const a="_wrapper_kfp2p_1",i="_title_kfp2p_5",r={wrapper:a,title:i},l=({title:e,children:t})=>s.jsxs("div",{className:r.wrapper,children:[s.jsx("h4",{className:r.title,children:e}),t]}),p=({movies:e})=>e.items,n=o([p],e=>e.filter(({favorite:t})=>t));export{l as M,n as a,p as g};
