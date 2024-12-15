@@ -2,7 +2,7 @@ import MaskedInput from 'react-text-mask';
 import useForm from '../../../hooks/useForm';
 import styles from '../MyMoviesForm/MyMoviesForm.module.css';
 
-const EditMoviesForm = ({ onSubmit, initialState }) => {
+const EditMoviesForm = ({ onSubmit, initialState, onCancel }) => {
   const { state, handleChange, handleSubmit } = useForm({
     initialState,
     onSubmit,
@@ -11,6 +11,13 @@ const EditMoviesForm = ({ onSubmit, initialState }) => {
   const { title, director, favorite, genre, releaseDate } = state;
 
   const yearMask = [/\d/, /\d/, /\d/, /\d/];
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    if (onCancel) {
+      onCancel();
+    }
+  };
 
   return (
     <form
@@ -78,7 +85,9 @@ const EditMoviesForm = ({ onSubmit, initialState }) => {
         <label>Poster</label>
         <input name="poster" type="file" onChange={handleChange} />
       </div>
-
+      <button className={styles.btn} onClick={handleCancel}>
+        Cancel
+      </button>
       <button className={styles.btn} type="submit">
         Edit Movie
       </button>

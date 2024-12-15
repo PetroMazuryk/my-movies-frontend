@@ -22,9 +22,13 @@
 .close {
   font-weight: bold;
   font-size: 18px;
-  color: red;
+  color: var(--bg-btn-color);
   position: absolute;
   top: 5px;
   right: 5px;
   cursor: pointer;
+}
+
+.close:hover {
+  color: var(--bg-btn-hover-color);
 }

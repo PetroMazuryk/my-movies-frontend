@@ -2,4 +2,6 @@
   --bg-btn-color: #f58457;
   --bg-btn-hover-color: #ba4618;
   --border: 1px solid #cbc9c9;
+  --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
 }

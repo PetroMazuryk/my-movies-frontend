@@ -37,6 +37,7 @@ const EditMovie = ({ movie, className }) => {
                 poster: null,
               }}
               onSubmit={handleUpdateMovie}
+              onCancel={closeModal}
             />
           }
         />

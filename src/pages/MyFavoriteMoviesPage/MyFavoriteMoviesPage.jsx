@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { useDispatch } from 'react-redux';
 import { getFavoriteMovies } from '../../redux/movies/movies-selectors';
 import { deleteMovie } from '../../redux/movies/movies-operations';
-
+import EditMovie from '../../components/MyMovies/EditMovie/EditMovie';
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 import styles from './MyFavoriteMoviesPage.module.css';
 import MyBooksBlock from '../../components/MyMovies/MyMoviesBlock/MyMoviesBlock';
@@ -19,7 +19,7 @@ const MyFavoriteMoviesPage = () => {
   };
 
   const elements = favoriteMovies.map(
-    ({ _id, title, director, genre, poster, releaseDate }) => (
+    ({ _id, title, director, genre, poster, releaseDate, favorite }) => (
       <li className={styles.listItem} key={_id}>
         {poster && (
           <div className={styles.posterWrapper}>
@@ -40,7 +40,19 @@ const MyFavoriteMoviesPage = () => {
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>
-        <button className={styles.btnEdit}>Edit</button>
+        <EditMovie
+          movie={{
+            _id,
+            title,
+            director,
+            genre,
+            poster,
+            releaseDate,
+            favorite,
+          }}
+          className={styles.btnEdit}
+        />
+        {/* <button className={styles.btnEdit}>Edit</button> */}
       </li>
     )
   );
