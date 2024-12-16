@@ -1,6 +1,8 @@
 .userTitle {
   font-size: 20px;
   font-weight: 700;
+  color: var(--primary-color);
+  text-shadow: var(--text-shadow-title);
 }
 
 .link {

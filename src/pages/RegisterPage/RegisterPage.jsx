@@ -1,6 +1,7 @@
 import { useDispatch } from 'react-redux';
 import RegisterForm from '../../components/RegisterForm/RegisterForm';
 import { register } from '../../redux/auth/auth-operations';
+import TitleText from '../../components/TitleText/TitleText';
 
 const RegisterPage = () => {
   const dispatch = useDispatch();
@@ -11,7 +12,7 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <h1 className="page-title">Register page</h1>
+      <TitleText>Register page</TitleText>
       <RegisterForm onSubmit={onRegister} />
     </div>
   );

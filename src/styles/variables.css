@@ -1,8 +1,12 @@
 :root {
+  --main-color: #242424;
+  --bg-main-color: #fff;
   --bg-btn-color: #f58457;
   --bg-btn-hover-color: #ba4618;
+  --bg-form-color: rgba(217, 205, 173, 0.5);
   --border: 1px solid #cbc9c9;
   --box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.15);
   --text-shadow-title: 1px 1px 2px #f58457;
+  --placeholder-color: #514e4e;
 }

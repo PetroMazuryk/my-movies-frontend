@@ -7,12 +7,35 @@
 }
 
 .label {
-  text-align: start;
+  font-size: 18px;
+  color: var(--main-color);
   padding-left: 10px;
+  text-align: start;
 }
 
 .field {
+  width: 300px;
+  font-size: 18px;
   padding: 10px;
   border: 1px solid;
   border-radius: 6px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+.field:hover {
+  color: var(--bg-btn-color);
+}
+
+.field:focus {
+  outline: none;
+  border-color: var(--bg-btn-hover-color);
+  box-shadow: 0 0 4px var(--bg-btn-hover-color);
+}
+
+.field::placeholder {
+  font-size: 16px;
+  color: var(--placeholder-color);
+  opacity: 0.7;
 }

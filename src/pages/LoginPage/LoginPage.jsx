@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import LoginForm from '../../components/LoginForm/LoginForm';
 
 import { login } from '../../redux/auth/auth-operations';
+import TitleText from '../../components/TitleText/TitleText';
 
 const LoginPage = () => {
   const dispatch = useDispatch();
@@ -13,7 +14,7 @@ const LoginPage = () => {
 
   return (
     <div className="container">
-      <h1 className="page-title">Login page</h1>
+      <TitleText>Login page</TitleText>
       <LoginForm onSubmit={onLogin} />
     </div>
   );
