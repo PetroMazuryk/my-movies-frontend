@@ -12,6 +12,7 @@ import {
 import { getMovies } from '../../redux/movies/movies-selectors';
 
 import styles from './MyMovies.module.css';
+import TitleText from '../TitleText/TitleText';
 
 const MyMovies = () => {
   const movies = useSelector(getMovies);
@@ -38,7 +39,11 @@ const MyMovies = () => {
         </MyMoviesBlock>
 
         <MyMoviesBlock title="Movie list">
-          <MyMoviesList items={movies} onDeleteMovie={onDeleteMovie} />
+          {movies.length > 0 ? (
+            <MyMoviesList items={movies} onDeleteMovie={onDeleteMovie} />
+          ) : (
+            <TitleText>No movies have been added yet</TitleText>
+          )}
         </MyMoviesBlock>
       </div>
     </div>

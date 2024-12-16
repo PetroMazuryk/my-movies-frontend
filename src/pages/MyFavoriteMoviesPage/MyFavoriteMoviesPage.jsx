@@ -6,6 +6,8 @@ import { deleteMovie } from '../../redux/movies/movies-operations';
 import EditMovie from '../../components/MyMovies/EditMovie/EditMovie';
 import MyBooksBlock from '../../components/MyMovies/MyMoviesBlock/MyMoviesBlock';
 import { updateMovieFavorite } from '../../redux/movies/movies-operations';
+
+import TitleText from '../../components/TitleText/TitleText';
 import icon from '../../assets/sprite.svg';
 
 import styles from './MyFavoriteMoviesPage.module.css';
@@ -74,7 +76,11 @@ const MyFavoriteMoviesPage = () => {
 
   return (
     <MyBooksBlock title="My favorite movies page">
-      <ol className={styles.list}>{elements}</ol>
+      {favoriteMovies.length > 0 ? (
+        <ol className={styles.list}>{elements}</ol>
+      ) : (
+        <TitleText>No favorite movies have been added yet</TitleText>
+      )}
     </MyBooksBlock>
   );
 };
