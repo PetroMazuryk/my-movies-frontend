@@ -4,15 +4,23 @@ import { useDispatch } from 'react-redux';
 import { getFavoriteMovies } from '../../redux/movies/movies-selectors';
 import { deleteMovie } from '../../redux/movies/movies-operations';
 import EditMovie from '../../components/MyMovies/EditMovie/EditMovie';
-const VITE_API_URL = import.meta.env.VITE_API_URL;
-import styles from './MyFavoriteMoviesPage.module.css';
 import MyBooksBlock from '../../components/MyMovies/MyMoviesBlock/MyMoviesBlock';
+import { updateMovieFavorite } from '../../redux/movies/movies-operations';
+import icon from '../../assets/sprite.svg';
+
+import styles from './MyFavoriteMoviesPage.module.css';
+
+const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const MyFavoriteMoviesPage = () => {
   const imageRef = useRef(null);
   const dispatch = useDispatch();
 
   const favoriteMovies = useSelector(getFavoriteMovies);
+
+  const toggleFavorite = (id, favorite) => {
+    dispatch(updateMovieFavorite({ id, favorite: !favorite }));
+  };
 
   const onDeleteMovie = (id) => {
     dispatch(deleteMovie(id));
@@ -37,6 +45,14 @@ const MyFavoriteMoviesPage = () => {
           <span>Genre: {genre}</span>
           <span>Release: {releaseDate}</span>
         </div>
+        <button>
+          <svg
+            onClick={() => toggleFavorite(_id, favorite)}
+            className={`${styles.like} ${favorite ? styles.likeActive : ''}`}
+          >
+            <use href={`${icon}#icon-heart`}></use>
+          </svg>
+        </button>
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>
