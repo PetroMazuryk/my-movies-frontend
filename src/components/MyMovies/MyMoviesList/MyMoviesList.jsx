@@ -43,6 +43,11 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
             <use href={`${icon}#icon-heart`}></use>
           </svg>
         </button>
+        <button>
+          <svg className={styles.video}>
+            <use href={`${icon}#icon-video`}></use>
+          </svg>
+        </button>
         <button className={styles.button} onClick={() => onDeleteMovie(_id)}>
           Delete
         </button>

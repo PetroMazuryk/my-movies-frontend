@@ -33,7 +33,7 @@ export const addMovie = createAsyncThunk(
 );
 
 export const deleteMovie = createAsyncThunk(
-  'movies/ deleteMovie',
+  'movies/deleteMovie',
   async (id, { rejectWithValue }) => {
     try {
       await api.deleteMovie(id);
