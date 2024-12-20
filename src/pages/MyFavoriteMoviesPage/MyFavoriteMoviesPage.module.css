@@ -71,6 +71,23 @@
   stroke: var(--bg-btn-color);
 }
 
+.video {
+  width: 26px;
+  height: 26px;
+  position: absolute;
+  top: 20%;
+  left: 10%;
+  --color1: var(--bg-btn-color);
+  --color2: #cc6941;
+  --color3: var(--bg-main-color);
+}
+
+.video:hover {
+  --color1: var(--bg-btn-hover-color);
+  --color2: var(--bg-btn-hover-color);
+  --color3: var(--bg-main-color);
+}
+
 .button {
   position: absolute;
   top: 72%;
