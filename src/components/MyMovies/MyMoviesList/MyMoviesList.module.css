@@ -135,3 +135,50 @@
 .listItem:hover .btnEdit {
   opacity: 1;
 }
+
+/* modal trailer */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.modalContent {
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 800px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  position: relative;
+
+  iframe {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 16/9;
+    border: none;
+  }
+}
+
+.close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  font-size: 30px;
+  color: var(--main-color);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--bg-btn-hover-color);
+}
