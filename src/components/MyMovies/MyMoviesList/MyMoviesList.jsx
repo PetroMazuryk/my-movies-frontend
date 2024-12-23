@@ -6,30 +6,34 @@ import EditMovie from '../EditMovie/EditMovie';
 import icon from '../../../assets/sprite.svg';
 
 import { updateMovieFavorite } from '../../../redux/movies/movies-operations';
-
+import { findAndPlayTrailer } from '../../../api/trailer.js';
 const VITE_API_URL = import.meta.env.VITE_API_URL;
-const VITE_API_YOUTUBE = 'ba520957137ad46ba4502dabb5237445';
 
 const MyMoviesList = ({ items, onDeleteMovie }) => {
   const imageRef = useRef(null);
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [currentTrailerUrl, setCurrentTrailerUrl] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
   const toggleFavorite = (id, favorite) => {
     dispatch(updateMovieFavorite({ id, favorite: !favorite }));
   };
 
-  const playTrailer = (title) => {
-    const encodedTitle = encodeURIComponent(title);
-    const trailerUrl = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&q=${encodedTitle}&key=${VITE_API_YOUTUBE}`;
-    console.log(trailerUrl);
-    setCurrentTrailerUrl(trailerUrl);
-    setIsModalOpen(true);
+  const playTrailer = async (query) => {
+    try {
+      const trailerUrl = await findAndPlayTrailer(query);
+      setCurrentTrailerUrl(trailerUrl);
+      setIsModalOpen(true);
+    } catch (error) {
+      setErrorMessage(error.message || 'An unexpected error occurred.');
+    }
   };
 
   const closeModal = () => {
     setIsModalOpen(false);
+    setCurrentTrailerUrl('');
+    setErrorMessage('');
   };
 
   const elements = items.map(
@@ -59,7 +63,7 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
             <use href={`${icon}#icon-heart`}></use>
           </svg>
         </button>
-        <button onClick={() => playTrailer(_id, title)}>
+        <button onClick={() => playTrailer(title)}>
           <svg className={styles.video}>
             <use href={`${icon}#icon-video`}></use>
           </svg>
@@ -94,15 +98,19 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
             <button className={styles.close} onClick={closeModal}>
               ×
             </button>
-            <iframe
-              width="560"
-              height="315"
-              src={currentTrailerUrl}
-              frameBorder="0"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              title="Trailer"
-            ></iframe>
+            {errorMessage ? (
+              <p className={styles.error}>{errorMessage}</p>
+            ) : (
+              <iframe
+                width="560"
+                height="315"
+                src={currentTrailerUrl}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                title="Trailer"
+              ></iframe>
+            )}
           </div>
         </div>
       )}
