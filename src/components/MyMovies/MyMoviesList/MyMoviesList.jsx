@@ -1,12 +1,11 @@
-import { useRef, useState } from 'react';
-
+import { useRef } from 'react';
 import { useDispatch } from 'react-redux';
 import styles from './MyMoviesList.module.css';
 import EditMovie from '../EditMovie/EditMovie';
 import icon from '../../../assets/sprite.svg';
 
 import { updateMovieFavorite } from '../../../redux/movies/movies-operations';
-import { findAndPlayTrailer } from '../../../api/trailer.js';
+
 import TrailerModal from '../../TrailerModal/TrailerModal.jsx';
 import { useTrailer } from '../../../hooks/useTrailer.js';
 

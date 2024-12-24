@@ -7,6 +7,8 @@ import EditMovie from '../../components/MyMovies/EditMovie/EditMovie';
 import MyBooksBlock from '../../components/MyMovies/MyMoviesBlock/MyMoviesBlock';
 import { updateMovieFavorite } from '../../redux/movies/movies-operations';
 
+import TrailerModal from '../../components/TrailerModal/TrailerModal.jsx';
+import { useTrailer } from '../../hooks/useTrailer.js';
 import TitleText from '../../components/TitleText/TitleText';
 import icon from '../../assets/sprite.svg';
 
@@ -19,6 +21,13 @@ const MyFavoriteMoviesPage = () => {
   const dispatch = useDispatch();
 
   const favoriteMovies = useSelector(getFavoriteMovies);
+  const {
+    isModalOpen,
+    currentTrailerUrl,
+    errorMessage,
+    playTrailer,
+    closeModal,
+  } = useTrailer();
 
   const toggleFavorite = (id, favorite) => {
     dispatch(updateMovieFavorite({ id, favorite: !favorite }));
@@ -55,7 +64,7 @@ const MyFavoriteMoviesPage = () => {
             <use href={`${icon}#icon-heart`}></use>
           </svg>
         </button>
-        <button>
+        <button onClick={() => playTrailer(title)}>
           <svg className={styles.video}>
             <use href={`${icon}#icon-video`}></use>
           </svg>
@@ -82,7 +91,15 @@ const MyFavoriteMoviesPage = () => {
   return (
     <MyBooksBlock title="My favorite movies page">
       {favoriteMovies.length > 0 ? (
-        <ol className={styles.list}>{elements}</ol>
+        <>
+          <ol className={styles.list}>{elements}</ol>
+          <TrailerModal
+            isOpen={isModalOpen}
+            trailerUrl={currentTrailerUrl}
+            errorMessage={errorMessage}
+            onClose={closeModal}
+          />
+        </>
       ) : (
         <TitleText>No favorite movies have been added yet</TitleText>
       )}
