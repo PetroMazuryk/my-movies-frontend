@@ -7,6 +7,8 @@ import icon from '../../../assets/sprite.svg';
 
 import { updateMovieFavorite } from '../../../redux/movies/movies-operations';
 import { findAndPlayTrailer } from '../../../api/trailer.js';
+import TrailerModal from '../../TrailerModal/TrailerModal.jsx';
+
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const MyMoviesList = ({ items, onDeleteMovie }) => {
@@ -92,28 +94,12 @@ const MyMoviesList = ({ items, onDeleteMovie }) => {
     <div>
       <ol className={styles.list}>{elements}</ol>
 
-      {isModalOpen && (
-        <div className={styles.modal}>
-          <div className={styles.modalContent}>
-            <button className={styles.close} onClick={closeModal}>
-              ×
-            </button>
-            {errorMessage ? (
-              <p className={styles.error}>{errorMessage}</p>
-            ) : (
-              <iframe
-                width="560"
-                height="315"
-                src={currentTrailerUrl}
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                title="Trailer"
-              ></iframe>
-            )}
-          </div>
-        </div>
-      )}
+      <TrailerModal
+        isOpen={isModalOpen}
+        trailerUrl={currentTrailerUrl}
+        errorMessage={errorMessage}
+        onClose={closeModal}
+      />
     </div>
   );
 };
