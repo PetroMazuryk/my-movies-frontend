@@ -8,35 +8,25 @@ import icon from '../../../assets/sprite.svg';
 import { updateMovieFavorite } from '../../../redux/movies/movies-operations';
 import { findAndPlayTrailer } from '../../../api/trailer.js';
 import TrailerModal from '../../TrailerModal/TrailerModal.jsx';
+import { useTrailer } from '../../../hooks/useTrailer.js';
 
 const VITE_API_URL = import.meta.env.VITE_API_URL;
 
 const MyMoviesList = ({ items, onDeleteMovie }) => {
   const imageRef = useRef(null);
   const dispatch = useDispatch();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [currentTrailerUrl, setCurrentTrailerUrl] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
 
   const toggleFavorite = (id, favorite) => {
     dispatch(updateMovieFavorite({ id, favorite: !favorite }));
   };
 
-  const playTrailer = async (query) => {
-    try {
-      const trailerUrl = await findAndPlayTrailer(query);
-      setCurrentTrailerUrl(trailerUrl);
-      setIsModalOpen(true);
-    } catch (error) {
-      setErrorMessage(error.message || 'An unexpected error occurred.');
-    }
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-    setCurrentTrailerUrl('');
-    setErrorMessage('');
-  };
+  const {
+    isModalOpen,
+    currentTrailerUrl,
+    errorMessage,
+    playTrailer,
+    closeModal,
+  } = useTrailer();
 
   const elements = items.map(
     ({ _id, title, director, genre, poster, releaseDate, favorite }) => (
