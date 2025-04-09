@@ -18,6 +18,10 @@ const NotFoundPage = lazy(() =>
   import('./pages/NotFoundPage/NotFoundPage.jsx')
 );
 
+const VerifyInfoPage = lazy(() =>
+  import('./pages/VerifyInfoPage/VerifyInfoPage.jsx')
+);
+
 const UserRoutes = () => {
   return (
     <Suspense fallback={<p>....Load page</p>}>
@@ -25,6 +29,7 @@ const UserRoutes = () => {
         <Route element={<PublicRoute />}>
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/login" element={<LoginPage />} />
+          <Route path="/verify-info" element={<VerifyInfoPage />} />
         </Route>
 
         <Route element={<PrivateRoute />}>
