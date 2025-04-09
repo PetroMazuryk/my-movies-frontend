@@ -40,4 +40,9 @@ export const getCurrent = async (token) => {
   }
 };
 
+export const resendVerifyEmail = async (email) => {
+  const { data } = await instance.post('/api/users/verify', { email });
+  return data.message;
+};
+
 export default instance;

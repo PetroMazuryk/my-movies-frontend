@@ -59,3 +59,17 @@ export const current = createAsyncThunk(
     },
   }
 );
+
+export const resendVerifyEmail = createAsyncThunk(
+  'auth/resendVerifyEmail',
+  async ({ email }, thunkAPI) => {
+    try {
+      const message = await api.resendVerifyEmail(email);
+      return message;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(
+        error.response?.data?.message || 'Failed to resend email'
+      );
+    }
+  }
+);
