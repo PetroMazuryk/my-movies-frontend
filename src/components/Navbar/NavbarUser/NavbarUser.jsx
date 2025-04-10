@@ -8,7 +8,7 @@ import styles from './NavbarUser.module.css';
 
 const NavbarUser = () => {
   const { name } = useSelector(getUser);
-  console.log(name);
+
   const dispatch = useDispatch();
 
   const onLogout = () => {
@@ -17,7 +17,7 @@ const NavbarUser = () => {
 
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-      {/* <p className={styles.userTitle}> {name}</p> */}
+      <p className={styles.userTitle}> {name}</p>
       <button className={styles.link} onClick={onLogout}>
         Logout
       </button>
