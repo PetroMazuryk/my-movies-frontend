@@ -28,14 +28,15 @@
 .buttonSecondary {
   padding: 10px 16px;
   border: none;
-  border-radius: 8px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: 500;
 }
 
 .button {
-  background-color: #1a73e8;
-  color: #fff;
+  color: red;
+   border: 1px solid red;
+ 
 }
 
 .buttonSecondary {

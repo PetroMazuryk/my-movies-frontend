@@ -1,0 +1,33 @@
+.resendContainer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+  }
+  
+  .resendButton {
+    color: red;
+   border: 1px solid red;
+    border-radius: 10px;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .resendButton:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .spinner {
+    margin-right: 10px;
+  }
+  
+  .message {
+    margin-top: 10px;
+    font-size: 14px;
+    color: green;
+  }

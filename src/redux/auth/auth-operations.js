@@ -62,14 +62,12 @@ export const current = createAsyncThunk(
 
 export const resendVerifyEmail = createAsyncThunk(
   'auth/resendVerifyEmail',
-  async ({ email }, thunkAPI) => {
+  async ({ email }, { rejectWithValue }) => {
     try {
-      const message = await api.resendVerifyEmail(email);
-      return message;
+      const response = await api.resendVerifyEmail(email); 
+      return response.data; 
     } catch (error) {
-      return thunkAPI.rejectWithValue(
-        error.response?.data?.message || 'Failed to resend email'
-      );
+      return rejectWithValue(error.response.data.message);
     }
   }
 );

@@ -2,6 +2,8 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../redux/auth/auth-selectors';
 import TitleText from '../../components/TitleText/TitleText';
+import ResendVerifyEmail from '../../components/ResendVerifyEmail/ResendVerifyEmail'
+
 import css from './VerifyPage.module.css';
 
 const VerifyPage = () => {
@@ -54,6 +56,7 @@ const VerifyPage = () => {
       <p className={css.hint}>
         Після підтвердження пошти, будь ласка, увійдіть у свій акаунт.
       </p>
+      <ResendVerifyEmail email={email} />
     </div>
   );
 };

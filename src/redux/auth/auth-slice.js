@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { register, login, logout, current } from './auth-operations';
+import { register, login, logout, current,resendVerifyEmail } from './auth-operations';
 
 const initialState = {
   user: {},
@@ -72,6 +72,17 @@ const authSlice = createSlice({
         state.isLogin = false;
       })
       .addCase(logout.rejected, (state, { payload }) => {
+        state.loading = false;
+        state.error = payload;
+      })
+      .addCase(resendVerifyEmail.pending, (state) => {
+        state.loading = true;
+      })
+      .addCase(resendVerifyEmail.fulfilled, (state) => {
+        state.loading = false;
+        state.message = 'Confirmation email has been resent!';
+      })
+      .addCase(resendVerifyEmail.rejected, (state, { payload }) => {
         state.loading = false;
         state.error = payload;
       });
