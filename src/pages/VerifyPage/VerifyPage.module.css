@@ -1,0 +1,50 @@
+.wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 20px;
+  text-align: center;
+}
+
+.email {
+  font-weight: 600;
+  color: #333;
+  margin-top: 4px;
+  display: inline-block;
+}
+
+.message {
+  margin: 12px 0;
+  font-size: 16px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.button,
+.buttonSecondary {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.button {
+  background-color: #1a73e8;
+  color: #fff;
+}
+
+.buttonSecondary {
+  background-color: #e0e0e0;
+  color: #333;
+}
+
+.hint {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #555;
+}
