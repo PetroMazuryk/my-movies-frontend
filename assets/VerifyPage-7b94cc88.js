@@ -1,1 +1,0 @@
-import{m as n,j as e}from"./index-fcce2c3a.js";const s=()=>{const t=n();return e.jsxs("div",{style:{textAlign:"center",marginTop:50},children:[e.jsx("h2",{children:"Перейти до пошти"}),e.jsx("button",{onClick:()=>t("/login"),style:{marginTop:20},children:"Перейти до входу"})]})};export{s as default};
