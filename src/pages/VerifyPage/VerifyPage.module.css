@@ -1,5 +1,5 @@
 .wrapper {
-  max-width: 480px;
+  max-width: 680px;
   margin: 0 auto;
   padding: 20px;
   text-align: center;
@@ -26,14 +26,17 @@
 
 .button,
 .buttonSecondary {
+  width: 202px;
   padding: 10px 16px;
   border: none;
   border-radius: 10px;
-  cursor: pointer;
   font-weight: 500;
 }
 
 .button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
   color: red;
    border: 1px solid red;
  

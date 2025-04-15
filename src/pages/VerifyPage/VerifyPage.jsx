@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { getUser } from '../../redux/auth/auth-selectors';
 import TitleText from '../../components/TitleText/TitleText';
 import ResendVerifyEmail from '../../components/ResendVerifyEmail/ResendVerifyEmail'
+import { MailCheck } from 'lucide-react';
 
 import css from './VerifyPage.module.css';
 
@@ -43,9 +44,10 @@ const VerifyPage = () => {
         <br />
         <span className={css.email}>{email}</span>
       </p>
-
+    
       <div className={css.buttons}>
         <button onClick={handleOpenMail} className={css.button}>
+        <MailCheck className={css.verifyIcon} />
           Перейти до пошти
         </button>
         <button onClick={handleGoToLogin} className={css.buttonSecondary}>
